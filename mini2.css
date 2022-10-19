@@ -1,14 +1,18 @@
 body {
-  padding: 0 100px;
+  padding: 0;
   margin: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
-
+  overflow: hidden;
 }
 
+/* 카드를 펼치면 화면 창에 스크롤바가 생긴다(상하, 좌우 둘 다)
+당장은 상관없지만 만약 큰 홈페이지 안에 이 효과를 집어넣을 경우 문제가 생길 수 있다. 그래서 spread의 부모인 body에 overflow;hidden을 줌으로써 body를 넘어가는 것들은 자연스럽게 안보이게 했다. 그러니 스크롤바가 생기지 않았다. */
+
 .spread {
+  margin-left: 100px;
   width: 240px;
   height: 360px;
   display: flex;
@@ -16,11 +20,14 @@ body {
   transform-style: preserve-3d;
 }
 
+.spread:hover > .box1 {
+  transform: translate(10px)  rotateZ(-10deg);
+}
+
 .spread:hover > .box2 {
   transform: translate(140px, -80px)  rotateZ(-160deg);
 }
 
-/* transfrom 다중 정의하는 방법, 그리고 적는 순서에 따라 효과도 다르다 */
 .spread:hover > .box3 {
   transform: translate(320px, 70px)  rotateZ(48deg);
 }
@@ -41,13 +48,13 @@ body {
   position: absolute;
   width: 240px;
   height: 360px;
-  /* transition: 0.5s; */
 }
 
 .box1 {
   transform-style: preserve-3d;
   backface-visibility: hidden;
   z-index: 6;
+  transition: 0.3s;
 }
 
 .box1-front strong {
@@ -60,8 +67,6 @@ body {
   color: white;
 }
 
-/* display inline-block으로 변경해줌으로써 상하마진 생성 */
-
 .box1-front{
   border-radius: 20px;
   width: 100%;
@@ -72,17 +77,17 @@ body {
   background-color: orangered;
 }
 
-.box1-back {
-  border-radius: 20px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
+.box1-front .circle {
+  width: 15px;
+  height: 15px;
   background-color: white;
+  margin-left: 200px;
+  margin-top: 210px;
+  border-radius: 50%;
 }
 
 .box2 {
   transform-style: preserve-3d;
-  /* transform: translateZ(5px); */
   backface-visibility: hidden;
   z-index: 5;
   transition: 0.4s;
@@ -108,18 +113,17 @@ body {
   background-color: #52E252;
 }
 
-.box2-back {
-  border-radius: 20px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
+.box2-front .circle {
+  width: 15px;
+  height: 15px;
   background-color: white;
+  margin-left: 200px;
+  margin-top: 210px;
+  border-radius: 50%;
 }
 
 .box3 {
   transform-style: preserve-3d;
-  /* transform: translateZ(3px); */
-  backface-visibility: hidden;
   z-index: 4;
   transition: 0.6s;
 }
@@ -144,17 +148,17 @@ body {
   background-color: #FF1493;
 }
 
-.box3-back {
-  border-radius: 20px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
+.box3-front .circle {
+  width: 15px;
+  height: 15px;
   background-color: white;
+  margin-left: 200px;
+  margin-top: 210px;
+  border-radius: 50%;
 }
 
 .box4 {
   transform-style: preserve-3d;
-  /* transform: translateZ(1px); */
   z-index: 3;
   transition: 0.8s;
 }
@@ -179,21 +183,17 @@ body {
   background-color: #3232FF;
 }
 
-.box4-back {
-  border-radius: 20px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
+.box4-front .circle {
+  width: 15px;
+  height: 15px;
   background-color: white;
+  margin-left: 200px;
+  margin-top: 210px;
+  border-radius: 50%;
 }
-
-
-
-
 
 .box5 {
   transform-style: preserve-3d;
-  /* transform: translateZ(1px); */
   z-index: 2;
   transition: 1s;
 }
@@ -218,17 +218,17 @@ body {
   background-color: #9400D3;
 }
 
-.box5-back {
-  border-radius: 20px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
+.box5-front .circle {
+  width: 15px;
+  height: 15px;
   background-color: white;
+  margin-left: 200px;
+  margin-top: 210px;
+  border-radius: 50%;
 }
 
 .box6 {
   transform-style: preserve-3d;
-  /* transform: translateZ(1px); */
   z-index: 1;
   transition: 1.2s;
 }
@@ -253,10 +253,11 @@ body {
   background-color: #FF8200;
 }
 
-.box6-back {
-  border-radius: 20px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
+.box6-front .circle {
+  width: 15px;
+  height: 15px;
   background-color: white;
+  margin-left: 200px;
+  margin-top: 210px;
+  border-radius: 50%;
 }
