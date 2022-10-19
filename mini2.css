@@ -1,0 +1,262 @@
+body {
+  padding: 0 100px;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+}
+
+.spread {
+  width: 240px;
+  height: 360px;
+  display: flex;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.spread:hover > .box2 {
+  transform: translate(140px, -80px)  rotateZ(-160deg);
+}
+
+/* transfrom 다중 정의하는 방법, 그리고 적는 순서에 따라 효과도 다르다 */
+.spread:hover > .box3 {
+  transform: translate(320px, 70px)  rotateZ(48deg);
+}
+
+.spread:hover > .box4 {
+  transform: translate(570px, 120px) rotateZ(144deg);
+}
+
+.spread:hover > .box5 {
+  transform: translate(690px, -170px) rotateZ(222deg);
+}
+
+.spread:hover > .box6 {
+  transform: translate(880px, 210px) rotateZ(320deg);
+}
+
+.box1, .box2, .box3, .box4, .box5, .box6 {
+  position: absolute;
+  width: 240px;
+  height: 360px;
+  /* transition: 0.5s; */
+}
+
+.box1 {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  z-index: 6;
+}
+
+.box1-front strong {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+/* display inline-block으로 변경해줌으로써 상하마진 생성 */
+
+.box1-front{
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(1px);
+  backface-visibility: hidden;
+  background-color: orangered;
+}
+
+.box1-back {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+}
+
+.box2 {
+  transform-style: preserve-3d;
+  /* transform: translateZ(5px); */
+  backface-visibility: hidden;
+  z-index: 5;
+  transition: 0.4s;
+}
+
+.box2-front strong {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+.box2-front{
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(1px);
+  backface-visibility: hidden;
+  background-color: #52E252;
+}
+
+.box2-back {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+}
+
+.box3 {
+  transform-style: preserve-3d;
+  /* transform: translateZ(3px); */
+  backface-visibility: hidden;
+  z-index: 4;
+  transition: 0.6s;
+}
+
+.box3-front strong {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+.box3-front{
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(1px);
+  backface-visibility: hidden;
+  background-color: #FF1493;
+}
+
+.box3-back {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+}
+
+.box4 {
+  transform-style: preserve-3d;
+  /* transform: translateZ(1px); */
+  z-index: 3;
+  transition: 0.8s;
+}
+
+.box4-front strong {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+.box4-front{
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(1px);
+  backface-visibility: hidden;
+  background-color: #3232FF;
+}
+
+.box4-back {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+}
+
+
+
+
+
+.box5 {
+  transform-style: preserve-3d;
+  /* transform: translateZ(1px); */
+  z-index: 2;
+  transition: 1s;
+}
+
+.box5-front strong {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+.box5-front{
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(1px);
+  backface-visibility: hidden;
+  background-color: #9400D3;
+}
+
+.box5-back {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+}
+
+.box6 {
+  transform-style: preserve-3d;
+  /* transform: translateZ(1px); */
+  z-index: 1;
+  transition: 1.2s;
+}
+
+.box6-front strong {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+.box6-front{
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(1px);
+  backface-visibility: hidden;
+  background-color: #FF8200;
+}
+
+.box6-back {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+}
